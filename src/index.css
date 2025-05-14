@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  /* overflow-x: hidden; */
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #bba9ef !important; /* your desired background color */
+  border-color: #bba9ef !important;
+}
+.ant-input::placeholder {
+  color: #8578AA !important;
+}
