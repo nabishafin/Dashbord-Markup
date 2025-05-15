@@ -7,9 +7,9 @@ import { useEffect } from "react";
 
 const PersonalInformation = () => {
   const { data, refetch, isFetching } = useGetUserQuery();
-  const user = data?.attributes?.user
+  const user = data?.attributes?.user;
 
-  console.log(user)
+  console.log(user);
 
   const { t } = useTranslation();
 
@@ -42,7 +42,7 @@ const PersonalInformation = () => {
             <>
               <img
                 className="border size-32 rounded-full mx-auto"
-                src={`${imageBaseUrl}${user?.profileImage}`}
+                src={`${imageBaseUrl}${user?.image}`}
                 alt="Profile"
               />
               <span className=" text-3xl font-semibold text-black mt-2">

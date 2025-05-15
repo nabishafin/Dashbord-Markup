@@ -23,7 +23,7 @@ const EditInformation = () => {
 
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(
-    user?.profileImage ? `${imageBaseUrl}${user.profileImage}` : null
+    user?.image ? `${imageBaseUrl}${user.image}` : null
   );
   const fileInputRef = useRef(null);
 
@@ -67,7 +67,7 @@ const EditInformation = () => {
 
     // Add image if updated
     if (imageFile) {
-      formdata.append("profileImage", imageFile);  // Changed field name
+      formdata.append("image", imageFile);  // Changed field name
     }
 
     try {

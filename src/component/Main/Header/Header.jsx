@@ -6,40 +6,76 @@ import { useSelector } from "react-redux";
 import { imageBaseUrl } from "../../../config/imageBaseUrl";
 import { useTranslation } from "react-i18next";
 import { MdOutlineNotificationsActive } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../../redux/features/auth/authSlice";
 
 const Header = ({ toggleSidebar }) => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate("/auth");
+  };
   const { user } = useSelector((state) => state.auth);
-  console.log(user)
+  console.log(user);
 
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
   return (
-    <div className=" w-full md:h-[80px] px-3  md:flex justify-between items-center  text-white sticky top-0 left-0 z-10 bg-[#202020]">
-      <div className="flex items-center gap-3 py-1 px-3 md:w-8/12 rounded">
+    <div className=" w-full md:h-[148px] px-3 md:flex justify-between items-center text-[#8578AA] sticky top-0 left-0 z-10 bg-[#fff] mt-[30px]">
+      <div>
+        <img
+          onClick={() => navigate("/")}
+          src="/public/logo/logo.png"
+          alt="logo"
+          className="size-16 cursor-pointer"
+        />
+      </div>
+      <div className="flex items-center gap-3 py-1 px-3 rounded">
         {/* Hamburger menu for mobile */}
         <button
-          className="md:hidden text-white text-3xl"
+          className="md:hidden text-[#8578AA] text-3xl"
           onClick={toggleSidebar}
         >
           <FiMenu />
         </button>
         <div>
-          <h1 className=" font-semibold text-white">
-            {t("Welcome")}, Thaddeus
-          </h1>
-          <h1 className="text-white">Have a nice day</h1>
+          <ul className="hidden md:flex gap-32 ">
+            <li>
+              <button
+                className="text-[#8578AA] font-bold"
+                onClick={() => navigate("/")}
+              >
+                Overview
+              </button>
+            </li>
+            <li>
+              <button
+                className="text-[#8578AA] font-bold"
+                onClick={() => navigate("/users")}
+              >
+                Users
+              </button>
+            </li>
+            <li>
+              <button
+                className="text-[#8578AA] font-bold"
+                onClick={() => navigate("/settings")}
+              >
+                Settings
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
 
       <div className="flex justify-between items-center gap-2 pl-2 mr-5">
-        <div></div>
-        {/* <Link to={"/notification"}>
+        <Link to={"/notification"}>
           <div className="relative inline-block p-1 mt-2">
-            <div className="text-[#FFFFFF] p-3 rounded-full">
-              <MdOutlineNotificationsActive className="size-8 text-[#FFFFFF]" />
+            <div className="text-[#FFFFFF] p-5 rounded-full">
+              <img src="/src/assets/notification.png" alt="" />
             </div>
 
             <span
@@ -49,16 +85,23 @@ const Header = ({ toggleSidebar }) => {
               {12}
             </span>
           </div>
-        </Link> */}
+        </Link>
         <img
           onClick={() => navigate("/personal-info")}
           src={
-            user?.profileImage
-              ? `${imageBaseUrl}${user?.profileImage}`
+            user?.image
+              ? `${imageBaseUrl}${user?.image}`
               : "/src/assets/user.png"
           }
           className="size-12 rounded-full cursor-pointer"
         />
+        <button
+          onClick={handleLogout}
+          className="flex items-center px-4 text-red-500 mt-5 mb-5 rounded-lg transition-all duration-200"
+        >
+          {/* <IoIosLogOut className="text-xl" /> */}
+          <img src="/src/assets/logout.png" alt="" />
+        </button>
       </div>
     </div>
   );
