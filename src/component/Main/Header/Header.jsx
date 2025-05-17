@@ -93,7 +93,7 @@ const Header = ({ toggleSidebar }) => {
               ? `${imageBaseUrl}${user?.image}`
               : "/src/assets/user.png"
           }
-          className="size-12 rounded-full cursor-pointer"
+          className="size-16 rounded-full cursor-pointer"
         />
         <button
           onClick={handleLogout}
