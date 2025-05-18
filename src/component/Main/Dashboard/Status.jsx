@@ -17,8 +17,8 @@ const Status = () => {
   
 
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div className="w-[90%] flex  items-center p-6 rounded-lg border-2 border-[#A28DD6] hover:border-[#c4a1e3] bg-[#F8F6FD] hover:scale-105 transition-all duration-300 ease-in-out">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="w-[100%] flex items-center p-6 rounded-lg border-2 border-[#A28DD6] hover:border-[#c4a1e3] bg-[#F8F6FD] hover:scale-105 transition-all duration-300 ease-in-out">
         <div className="flex items text-[#49005A]">
           <TotalUserIcon className="w-10 h-10 mr-5" />
         </div>
@@ -29,7 +29,7 @@ const Status = () => {
           </h1>
         </div>
       </div>
-      <div className="w-[90%] flex  items-center p-6 rounded-lg border-2 border-[#A28DD6] hover:border-[#c4a1e3] bg-[#F8F6FD] hover:scale-105 transition-all duration-300 ease-in-out">
+      <div className="w-[100%] flex  items-center p-6 rounded-lg border-2 border-[#A28DD6] hover:border-[#c4a1e3] bg-[#F8F6FD] hover:scale-105 transition-all duration-300 ease-in-out">
         <div className="flex items text-[#49005A]">
           <ActiveUserIcon className="w-10 h-10 mr-5" />
         </div>
@@ -40,7 +40,7 @@ const Status = () => {
           <h1 className=" text-4xl font-bold text-[#49005A] "><CountUp start={0} end={activeUsers} duration={2} separator="," className="font-bold" /></h1>
         </div>
       </div>
-      <div className="w-[90%] flex  items-center p-6 rounded-lg border-2 border-[#A28DD6] hover:border-[#c4a1e3] bg-[#F8F6FD] hover:scale-105 transition-all duration-300 ease-in-out">
+      <div className="w-[100%] flex  items-center p-6 rounded-lg border-2 border-[#A28DD6] hover:border-[#c4a1e3] bg-[#F8F6FD] hover:scale-105 transition-all duration-300 ease-in-out">
         <div className="flex items text-[#49005A]">
           <InactiveUserIcon className="w-10 h-10 mr-5" />
         </div>
@@ -51,7 +51,7 @@ const Status = () => {
           <h1 className=" text-4xl font-bold text-[#49005A] "><CountUp start={0} end={inactiveUsers} duration={2} separator="," className="font-bold" /></h1>
         </div>
       </div>
-      <div className="w-[90%] flex  items-center p-6 rounded-lg border-2 border-[#A28DD6] hover:border-[#c4a1e3] bg-[#F8F6FD] hover:scale-105 transition-all duration-300 ease-in-out">
+      <div className="w-[100%] flex  items-center p-6 rounded-lg border-2 border-[#A28DD6] hover:border-[#c4a1e3] bg-[#F8F6FD] hover:scale-105 transition-all duration-300 ease-in-out">
         <div className="flex items text-[#49005A]">
           <NewUserIcon className="w-10 h-10 mr-5" />
         </div>
