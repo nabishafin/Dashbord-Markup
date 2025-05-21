@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { imageBaseUrl } from "../../../config/imageBaseUrl";
@@ -11,6 +11,7 @@ import { logoutUser } from "../../../redux/features/auth/authSlice";
 
 const Header = ({ toggleSidebar }) => {
     const navigate = useNavigate();
+    const location = useLocation();
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -23,6 +24,9 @@ const Header = ({ toggleSidebar }) => {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
+  
+  const isActive = (path) => location.pathname === path;
+
   return (
     <div className=" w-full md:h-[148px] px-3 md:flex justify-between items-center text-[#8578AA] sticky top-0 left-0 z-10 bg-[#fff] mt-[30px]">
       <div>
@@ -45,7 +49,9 @@ const Header = ({ toggleSidebar }) => {
           <ul className="hidden md:flex gap-32 ">
             <li>
               <button
-                className="text-[#8578AA] font-bold"
+                className={`text-[#8578AA] font-bold border-b-2 ${
+                  isActive("/") ? "border-[#8578AA]" : "border-transparent"
+                }`}
                 onClick={() => navigate("/")}
               >
                 Overview
@@ -53,7 +59,9 @@ const Header = ({ toggleSidebar }) => {
             </li>
             <li>
               <button
-                className="text-[#8578AA] font-bold"
+                className={`text-[#8578AA] font-bold border-b-2 ${
+                  isActive("/users") ? "border-[#8578AA]" : "border-transparent"
+                }`}
                 onClick={() => navigate("/users")}
               >
                 Users
@@ -61,7 +69,9 @@ const Header = ({ toggleSidebar }) => {
             </li>
             <li>
               <button
-                className="text-[#8578AA] font-bold"
+                className={`text-[#8578AA] font-bold border-b-2 ${
+                  isActive("/settings") ? "border-[#8578AA]" : "border-transparent"
+                }`}
                 onClick={() => navigate("/settings")}
               >
                 Settings

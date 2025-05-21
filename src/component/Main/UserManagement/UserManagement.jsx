@@ -46,8 +46,8 @@ const UserManagement = () => {
       email: user.email,
       phoneNumber: user.phoneNumber,
       createdAt: user.createdAt,
-      subscription: user.subscription,
-      profileImage: user.profileImage,
+      isActive: user.isActive,
+      image: user.image,
       _id: user.id,
     }));
 
@@ -74,13 +74,13 @@ const UserManagement = () => {
       key: "si",
     },
     {
-      title: <span>{t("User Name")}</span>,
+      title: <span>{t("Profile Name")}</span>,
       dataIndex: "fullName",
       key: "fullName",
       render: (_, record) => (
         <div className="flex items-center space-x-2 ">
           <img
-            src={`${imageBaseUrl}/${record.profileImage}`}
+            src={`${imageBaseUrl}/${record.image}`}
             alt="User"
             className="w-10 h-10 rounded-full"
           />
@@ -94,21 +94,16 @@ const UserManagement = () => {
       key: "email",
     },
     {
-      title: "Phone",
-      dataIndex: "phoneNumber",
-      key: "phoneNumber",
-    },
-    {
       title: <span>{t("Joining Date")}</span>,
       dataIndex: "createdAt",
       key: "createdAt",
       render: (date) => new Date(date).toLocaleDateString(),
     },
     {
-      title: <span>{t("Subscription Status")}</span>,
-      dataIndex: "subscription",
+      title: <span>{t("Status")}</span>,
+      dataIndex: "isActive",
       key: "subscription",
-      render: (subscription) => subscription?.status || "None",
+      render: (_,record) => record?.isActive || "None",
     },
     {
       title: <span>{t("Action")}</span>,
@@ -217,8 +212,8 @@ const UserManagement = () => {
 
           {/* Subscription Status */}
           <div className="flex justify-between mt-2 border-b border-black py-2">
-            <div className="font-semibold">{t("Subscription Status")}</div>
-            <div>{user?.subscription?.status || "None"}</div>
+            <div className="font-semibold">{t("Status")}</div>
+            <div>{user?.isActive || "None"}</div>
           </div>
 
           {/* Joining Date */}
