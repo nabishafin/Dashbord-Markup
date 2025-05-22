@@ -20,3 +20,11 @@
 .ant-input::placeholder {
   color: #8578AA !important;
 }
+
+.custom-row {
+  border-bottom: none !important; /* remove default border */
+  margin-bottom: 12px !important; /* gap between rows */
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  border-radius: 8px;
+  background: white;
+}

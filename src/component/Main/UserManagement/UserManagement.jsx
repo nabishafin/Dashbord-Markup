@@ -129,16 +129,16 @@ const UserManagement = () => {
   return (
     <section className="mr-2">
       <div className="md:flex justify-between items-center mt-2">
-        <h1 className="md:text-2xl font-semibold py-2">{t("User List")}</h1>
-        <Form className="w-full md:w-[15%] flex items-center border border-gray-300 rounded-md p-2 shadow-sm">
-          <FiSearch className="text-gray-400 mr-2" />
+        <h1 className="md:text-3xl font-semibold py-2 text-[#8578AA]">{t("Users")}</h1>
+        <Form className="w-full md:w-[25%] flex items-center border border-[#BBA9EF] rounded-full p-3 shadow-sm bg-[#F8F6FD]">
+          <FiSearch className="text-black mr-2" />
           <input
             type="text"
-            placeholder={t("Search...")}
+            placeholder={t("Search Text")}
             className="flex-1 outline-none bg-transparent border-none focus:border-none"
             value={searchText}
             onChange={handleSearchChange} // Call handleSearchChange on input change
-          />
+          />  
         </Form>
       </div>
 
@@ -154,13 +154,13 @@ const UserManagement = () => {
         <ConfigProvider
           theme={{
             token: {
-              colorBgContainer: "#F4F5F7",
+              colorBgContainer: "#FEFCFF",
               colorPrimary: "#1890ff",
             },
             components: {
               Table: {
-                headerBg: "#EDD9B7",
-                headerColor: "#000000",
+                headerBg: "#F8F6FD",
+                headerColor: "#8578AA",
                 headerBorderRadius: 1,
               },
             },
@@ -176,6 +176,7 @@ const UserManagement = () => {
             dataSource={filteredData} // Use filtered data here
             rowKey="id"
             scroll={{ x: 500 }}
+            rowClassName={() => "custom-row"}
           />
         </ConfigProvider>
       )}
