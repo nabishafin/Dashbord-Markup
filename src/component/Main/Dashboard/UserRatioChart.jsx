@@ -81,7 +81,7 @@ const UserRatioChart = () => {
         bordered={false}
         title={
           <h3 className=" self-stretch justify-start text-[#000] text-3xl font-bold font-['Mulish']">
-            User Ratiooo
+            User Ratio
           </h3>
         }
       >

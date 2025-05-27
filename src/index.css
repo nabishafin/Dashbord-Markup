@@ -18,7 +18,7 @@
   border-color: #bba9ef !important;
 }
 .ant-input::placeholder {
-  color: #8578AA !important;
+  color: #8578aa !important;
 }
 
 .custom-row {
@@ -27,4 +27,9 @@
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
   border-radius: 8px;
   background: white;
+}
+
+.custom-blur-mask {
+  backdrop-filter: blur(28px);
+  background-color: rgba(0, 0, 0, 0.4) !important;
 }
