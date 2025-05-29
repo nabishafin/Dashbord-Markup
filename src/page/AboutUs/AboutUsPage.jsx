@@ -16,7 +16,7 @@ const AboutUsPage = () => {
   }
 
   if (error) {
-    return <div>Error loading privacy policy</div>;
+    return <div>Error loading About us page</div>;
   }
 
   return (
