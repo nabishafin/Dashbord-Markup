@@ -46,7 +46,7 @@ const PersonalInformation = () => {
                 alt="Profile"
               />
               <span className=" text-3xl font-semibold text-black mt-2">
-                Thaddeus
+                {user?.fullName}
               </span>
             </>
           )}

@@ -1,6 +1,13 @@
-import React from "react";
+import { useEffect, useState, useRef } from "react";
+import { imageBaseUrl } from "../../../config/imageBaseUrl";
 
+import {
+  useGetUserQuery,
+  useUpdateUserMutation,
+} from "../../../redux/features/profile/profileApi";
 const GeneralSettings = () => {
+    const { data, refetch, isFetching } = useGetUserQuery();
+  const user = data?.attributes?.user;
   return (
     <div className="h-[718px] p-10 bg-white inline-flex justify-start items-center gap-2.5">
       <div className="w-[507px] inline-flex flex-col justify-start items-start gap-8">
@@ -8,10 +15,7 @@ const GeneralSettings = () => {
           <div className="self-stretch justify-start text-neutral-400 text-base font-bold font-['Mulish']">
             Profile Picture
           </div>
-          <img
-            className="self-stretch h-28 rounded-full"
-            src="https://placehold.co/120x120"
-          />
+          <img className="self-stretch h-28 rounded-full" src={`${imageBaseUrl}${user?.image}`} />
         </div>
         <div className="self-stretch flex flex-col justify-start items-start">
           <div className="self-stretch justify-start text-neutral-400 text-sm font-normal font-['Mulish']">

@@ -97,7 +97,7 @@ const Header = ({ toggleSidebar }) => {
           </div>
         </Link>
         <img
-          onClick={() => navigate("/personal-info")}
+          onClick={() => navigate("/settings")}
           src={
             user?.image
               ? `${imageBaseUrl}${user?.image}`
