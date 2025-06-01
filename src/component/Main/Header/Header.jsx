@@ -10,22 +10,27 @@ import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
 
 const Header = ({ toggleSidebar }) => {
-    const navigate = useNavigate();
-    const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logoutUser());
     navigate("/auth");
   };
   const { user } = useSelector((state) => state.auth);
-  console.log(user);
 
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
-  
+
   const isActive = (path) => location.pathname === path;
+
+  // Build image URL properly
+  const profileImageSrc =
+    user?.image && !user.image.startsWith("http")
+      ? `${imageBaseUrl}${user.image}`
+      : user?.image || "/src/assets/user.png";
 
   return (
     <div className=" w-full md:h-[148px] px-3 md:flex justify-between items-center text-[#8578AA] sticky top-0 left-0 z-10 bg-[#fff] mt-[30px]">
@@ -98,19 +103,15 @@ const Header = ({ toggleSidebar }) => {
         </Link>
         <img
           onClick={() => navigate("/settings")}
-          src={
-            user?.image
-              ? `${imageBaseUrl}${user?.image}`
-              : "/src/assets/user.png"
-          }
+          src={profileImageSrc}
           className="size-16 rounded-full cursor-pointer"
+          alt="User Profile"
         />
         <button
           onClick={handleLogout}
           className="flex items-center px-4 text-red-500 mt-5 mb-5 rounded-lg transition-all duration-200"
         >
-          {/* <IoIosLogOut className="text-xl" /> */}
-          <img src="/src/assets/logout.png" alt="" />
+          <img src="/src/assets/logout.png" alt="Logout" />
         </button>
       </div>
     </div>

@@ -33,3 +33,48 @@
   backdrop-filter: blur(28px);
   background-color: rgba(0, 0, 0, 0.4) !important;
 }
+
+.ql-container {
+  border: none !important;
+  box-shadow: none !important; /* optional, to remove any shadow */
+}
+
+/* Toolbar background and rounded corners */
+.ql-toolbar {
+  background-color: #a28dd6; /* purple background */
+  border-radius: 8px 8px 0 0;
+  border: none;
+  box-shadow: none;
+  color: #8a7fcf; /* lighter purple text */
+}
+
+/* Toolbar buttons and selects */
+.ql-toolbar .ql-picker,
+.ql-toolbar button {
+  background-color: rgba(162, 141, 214, 0.3); /* translucent purple */
+  border: none;
+  color: #8a7fcf;
+  border-radius: 4px;
+  margin: 0 4px;
+}
+
+/* Highlight active toolbar button */
+.ql-toolbar .ql-picker.ql-expanded,
+.ql-toolbar button:hover,
+.ql-toolbar button.ql-active {
+  background-color: #8a7fcf; /* darker purple */
+  color: white;
+}
+
+/* Editor container rounded corners */
+.ql-container {
+  border-radius: 0 0 8px 8px;
+  border: 1px solid #a28dd6;
+}
+
+/* Editor area text color */
+.ql-editor {
+  min-height: 150px;
+  font-family: 'Mulish', sans-serif; /* optional font */
+  font-weight: 500;
+}

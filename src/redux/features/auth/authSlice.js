@@ -22,7 +22,10 @@ const authSlice = createSlice({
       state.changePasswordToken = action.payload.changePasswordToken;
     },
     updateUser(state, action) {
-      state.user = action.payload.user;
+      state.user = {
+        ...state.user,
+        ...action.payload.user,
+      };
     },
     updateOtpVerifyToken(state, action) {
       state.token = action.payload.token;

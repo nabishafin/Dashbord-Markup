@@ -8,7 +8,7 @@ const CustomButton = ({
   border = false,
 }) => {
   return (
-    <div className="w-full flex justify-center ">
+    <div className="w-full flex justify-start mt-16 ">
       <div
         className={`${className} ${
           border ? "" : ""
