@@ -12,5 +12,4 @@ const dashboardApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetDashboardStatusQuery} =
-  dashboardApi;
+export const { useGetDashboardStatusQuery } = dashboardApi;

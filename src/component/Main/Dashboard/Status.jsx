@@ -10,10 +10,10 @@ const Status = () => {
   const { data } = useGetDashboardStatusQuery();
   console.log(data);
 
-  const totalUsers = data?.totalUsers ?? 100;
-  const activeUsers = data?.activeUsers ?? 80;
-  const inactiveUsers = data?.inactiveUsers ?? 20;
-  const newUsers = data?.newUsers ?? 15;
+  const totalUsers = data?.totalUser;
+  const activeUsers = data?.activeUser ?? 80;
+  const inactiveUsers = data?.inactiveUser ?? 20;
+  const newUsers = data?.newUser ?? 15;
   
 
   return (

@@ -9,17 +9,11 @@ const userManagementApi = baseApi.injectEndpoints({
       }),
       providesTags: ["user"],
     }),
-    UpdateUserManagement: builder.mutation({
-      query: (id) => ({
-        url: `/admin/v2/ban-user/${id}`,
-        method: "PATCH",
-      }),
-      invalidatesTags: ["user"],
-    }),
-    UpdateUserUnblock: builder.mutation({
-      query: (id) => ({
-        url: `/admin/v2/unban-user/${id}`,
-        method: "PATCH",
+    toggleBlockUser: builder.mutation({
+      query: (userId) => ({
+        url: `/admin/user/toggle-block`,
+        method: "POST",
+        body: { userId }, // Send userId inside the body as an object
       }),
       invalidatesTags: ["user"],
     }),
@@ -27,7 +21,7 @@ const userManagementApi = baseApi.injectEndpoints({
       query: (data) => ({
         url: "/admin/user/remove",
         method: "POST",
-        body:data
+        body: data,
       }),
       invalidatesTags: ["user"],
     }),
@@ -36,8 +30,6 @@ const userManagementApi = baseApi.injectEndpoints({
 
 export const {
   useGetAllUsersQuery,
-  useGetUserSearchQuery,
-  useUpdateUserManagementMutation,
-  useUpdateUserUnblockMutation,
-  useDeleteUserMutation
+  useToggleBlockUserMutation,
+  useDeleteUserMutation,
 } = userManagementApi;
