@@ -7,6 +7,7 @@ const dashboardApi = baseApi.injectEndpoints({
         url: "/admin/dashboard/status",
         method: "GET",
       }),
+      providesTags: ["DashboardStatus"],
       transformResponse: (response) => response?.data?.attributes,
     }),
   }),
