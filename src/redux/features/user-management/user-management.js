@@ -15,7 +15,7 @@ const userManagementApi = baseApi.injectEndpoints({
         method: "POST",
         body: { userId }, // Send userId inside the body as an object
       }),
-      invalidatesTags: ["user"],
+      invalidatesTags: ["user", "DashboardStatus"],
     }),
     deleteUser: builder.mutation({
       query: (data) => ({
